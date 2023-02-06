@@ -1,7 +1,13 @@
-import { Add } from "./Add";
-import { Constant } from "./Constant";
+const cScreen = document.getElementsByClassName("screen")[0];
 
-// tests
-let c = new Constant(10);
-let addition = new Add(c, new Add(new Constant(5), c));
-console.log(addition.toString());
+let clearButton = document.getElementsByClassName("clear")[0];
+clearButton.addEventListener('click', () => clear())
+
+let keys = document.querySelectorAll(".keys span");
+keys.forEach((key) => {
+    key.addEventListener('click', () => cScreen.innerHTML = key.innerHTML);
+})
+
+function clear() {
+    cScreen.innerHTML = "";
+}
