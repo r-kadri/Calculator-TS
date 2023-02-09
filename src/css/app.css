@@ -14,7 +14,7 @@
 html {
 	height: 100%;
 	background: white;
-	background: radial-gradient(circle, #fff 20%, #ccc);
+	background: radial-gradient(circle, rgb(0, 0, 0) 20%, rgb(43, 43, 43));
 	background-size: cover;
 }
 
