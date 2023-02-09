@@ -49,9 +49,16 @@ function res() {
     for (let i = 0; i < cScreen.innerHTML.length; i++) {
         if(signs.some( sign => sign == cScreen.innerHTML[i])) {
             if(finalResult != null) {
-                // TODO (operation plusieurs signes)
+                if(s == '+') {
+                    finalResult += +part;
+                } else {
+                    finalResult -= +part;
+                }
+                part = "";
+                s = cScreen.innerHTML[i];
             } else {
                 finalResult = +part;
+                s = cScreen.innerHTML[i];
                 part = "";
             }
         } else {
@@ -59,7 +66,10 @@ function res() {
         }
     }
     if(finalResult) {
-        finalResult += +part;
+        if(s == '+')
+            finalResult += +part;
+        else
+            finalResult -= +part;
         cScreen.innerHTML = finalResult?.toString();
     }
 }
